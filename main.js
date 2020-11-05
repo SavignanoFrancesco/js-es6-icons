@@ -97,6 +97,24 @@ $(document).ready(() => {
             prefix: 'fa-',
             type: 'user',
             family: 'fas'
+        },
+        {
+            name: 'instagram',
+            prefix: 'fa-',
+            type: 'socials',
+            family: 'fab'
+        },
+        {
+            name: 'twitter',
+            prefix: 'fa-',
+            type: 'socials',
+            family: 'fab'
+        },
+        {
+            name: 'facebook',
+            prefix: 'fa-',
+            type: 'socials',
+            family: 'fab'
         }
     ];
 
@@ -124,9 +142,9 @@ $(document).ready(() => {
             element.color = 'green';
         }else if (type == 'user') {
             element.color = 'blue';
+        }else if (type == 'socials'){
+            element.color = 'purple';
         }
-
-        return element;
 
     });
     console.log(icon_types);
@@ -171,8 +189,8 @@ function printAllTypes(icons_array){
     icons_array.forEach((element) => {
         const {name, prefix, type, family, color} = element;
         $('.icons-container').append(`
-        <div class="icon">
-            <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+        <div class="icon" style="color:${color}">
+            <i class="${family} ${prefix}${name} fa-2x" ></i>
             <p>${name}</p>
         </div>
         `);
@@ -190,8 +208,8 @@ function printSelectedType(icons_array,chosen_type){
         if (type == chosen_type) {
             const {name, prefix, type, family, color} = element;
             $('.icons-container').append(`
-            <div class="icon">
-                <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+            <div class="icon" style="color:${color}">
+                <i class="${family} ${prefix}${name} fa-2x"></i>
                 <p>${name}</p>
             </div>
             `);
