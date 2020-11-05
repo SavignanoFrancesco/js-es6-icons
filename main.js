@@ -100,7 +100,7 @@ $(document).ready(() => {
         }
     ];
 
-    //
+    //array che conterra i tipi di icona
     const icon_types = [];
 
     //scorro le icone e aggiungo il colore a seconda del tipo
@@ -114,7 +114,7 @@ $(document).ready(() => {
             icon_types.push(type);
             $('.icontypes').append(`
                 <option value="${type}">${type}</option>
-                `);
+            `);
         }
 
         //aggiungo il colore alle icone a seconda del tipo
@@ -147,6 +147,7 @@ $(document).ready(() => {
 
         //se seleziono tutti i tipi
         if (selected_type == 'all_types') {
+
             //stampa tutte le icone
             printAllTypes(icons);
 
@@ -158,13 +159,12 @@ $(document).ready(() => {
 
         }
 
-
-
-
     });
 
-
 });
+
+
+//__________FUNZIONI__________
 
 //stampa tutti i tipi di icona
 function printAllTypes(icons_array){
@@ -196,8 +196,6 @@ function printSelectedType(icons_array,chosen_type){
             </div>
             `);
         }
-
-
 
     });
 }
