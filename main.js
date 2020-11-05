@@ -189,6 +189,50 @@ $(document).ready(() => {
 
             });
 
+        }else if(selected_type == 'vegetable'){
+
+            icons.forEach((element) => {
+
+                //prelevo il tipo dall'icona
+                const {type} = element;
+
+                //stampo i vegetali
+                if (type == 'vegetable') {
+                    const {name, prefix, type, family, color} = element;
+                    $('.icons-container').append(`
+                    <div class="icon">
+                        <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+                        <p>${name}</p>
+                    </div>
+                    `);
+                }
+
+
+
+            });
+
+        }else if(selected_type == 'user'){
+
+            icons.forEach((element) => {
+
+                //prelevo il tipo dall'icona
+                const {type} = element;
+
+                //stampo gli user
+                if (type == 'user') {
+                    const {name, prefix, type, family, color} = element;
+                    $('.icons-container').append(`
+                    <div class="icon">
+                        <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+                        <p>${name}</p>
+                    </div>
+                    `);
+                }
+
+
+
+            });
+
         }
 
     });
