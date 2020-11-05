@@ -151,19 +151,15 @@ $(document).ready(() => {
             printAllTypes(icons);
 
 
-        }else if(selected_type == 'animal'){
+        }else{
 
-            printSelectedType(icons,selected_type);
-
-        }else if(selected_type == 'vegetable'){
-
-            printSelectedType(icons,selected_type);
-
-        }else if(selected_type == 'user'){
-
+            //stampa icone del tipo selezionato
             printSelectedType(icons,selected_type);
 
         }
+
+
+
 
     });
 
