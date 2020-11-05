@@ -132,6 +132,7 @@ $(document).ready(() => {
     console.log(icon_types);
     console.log(icons);
 
+    //stampo tutte le icone
     icons.forEach((element) => {
         const {name, prefix, type, family, color} = element;
         $('.icons-container').append(`
@@ -142,14 +143,19 @@ $(document).ready(() => {
         `);
     });
 
+    //se cambia l'opzione di select
     $('.icontypes').change(() => {
 
+        //rimuovi le icone
         $('.icons-container').empty();
 
+        //inizializzo l'opzione selezionata
         const selected_type = $('.icontypes').val();
         console.log(selected_type);
 
+        //se seleziono tutti i tipi
         if (selected_type == 'all_types') {
+            //stampa tutte le icone
             icons.forEach((element) => {
                 const {name, prefix, type, family, color} = element;
                 $('.icons-container').append(`
@@ -159,7 +165,29 @@ $(document).ready(() => {
                 </div>
                 `);
             });
-        }else{
+
+        //se seleziono animal
+        }else if(selected_type == 'animal'){
+
+            icons.forEach((element) => {
+
+                //prelevo il tipo dall'icona
+                const {type} = element;
+
+                //stampo gli animali
+                if (type == 'animal') {
+                    const {name, prefix, type, family, color} = element;
+                    $('.icons-container').append(`
+                    <div class="icon">
+                        <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+                        <p>${name}</p>
+                    </div>
+                    `);
+                }
+
+
+
+            });
 
         }
 
