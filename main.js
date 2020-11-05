@@ -133,15 +133,7 @@ $(document).ready(() => {
     console.log(icons);
 
     //stampo tutte le icone
-    icons.forEach((element) => {
-        const {name, prefix, type, family, color} = element;
-        $('.icons-container').append(`
-        <div class="icon">
-            <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
-            <p>${name}</p>
-        </div>
-        `);
-    });
+    printAllTypes(icons);
 
     //se cambia l'opzione di select
     $('.icontypes').change(() => {
@@ -156,82 +148,20 @@ $(document).ready(() => {
         //se seleziono tutti i tipi
         if (selected_type == 'all_types') {
             //stampa tutte le icone
-            icons.forEach((element) => {
-                const {name, prefix, type, family, color} = element;
-                $('.icons-container').append(`
-                <div class="icon">
-                    <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
-                    <p>${name}</p>
-                </div>
-                `);
-            });
+            printAllTypes(icons);
 
-        //se seleziono animal
+
         }else if(selected_type == 'animal'){
 
-            icons.forEach((element) => {
-
-                //prelevo il tipo dall'icona
-                const {type} = element;
-
-                //stampo gli animali
-                if (type == 'animal') {
-                    const {name, prefix, type, family, color} = element;
-                    $('.icons-container').append(`
-                    <div class="icon">
-                        <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
-                        <p>${name}</p>
-                    </div>
-                    `);
-                }
-
-
-
-            });
+            printSelectedType(icons,selected_type);
 
         }else if(selected_type == 'vegetable'){
 
-            icons.forEach((element) => {
-
-                //prelevo il tipo dall'icona
-                const {type} = element;
-
-                //stampo i vegetali
-                if (type == 'vegetable') {
-                    const {name, prefix, type, family, color} = element;
-                    $('.icons-container').append(`
-                    <div class="icon">
-                        <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
-                        <p>${name}</p>
-                    </div>
-                    `);
-                }
-
-
-
-            });
+            printSelectedType(icons,selected_type);
 
         }else if(selected_type == 'user'){
 
-            icons.forEach((element) => {
-
-                //prelevo il tipo dall'icona
-                const {type} = element;
-
-                //stampo gli user
-                if (type == 'user') {
-                    const {name, prefix, type, family, color} = element;
-                    $('.icons-container').append(`
-                    <div class="icon">
-                        <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
-                        <p>${name}</p>
-                    </div>
-                    `);
-                }
-
-
-
-            });
+            printSelectedType(icons,selected_type);
 
         }
 
@@ -239,3 +169,39 @@ $(document).ready(() => {
 
 
 });
+
+//stampa tutti i tipi di icona
+function printAllTypes(icons_array){
+    icons_array.forEach((element) => {
+        const {name, prefix, type, family, color} = element;
+        $('.icons-container').append(`
+        <div class="icon">
+            <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+            <p>${name}</p>
+        </div>
+        `);
+    });
+}
+
+//stampa i tipi di icona selezionata
+function printSelectedType(icons_array,chosen_type){
+    icons_array.forEach((element) => {
+
+        //prelevo il tipo dall'icona
+        const {type} = element;
+
+        //stampo il tipo selezionato
+        if (type == chosen_type) {
+            const {name, prefix, type, family, color} = element;
+            $('.icons-container').append(`
+            <div class="icon">
+                <i class="${family} ${prefix}${name} fa-2x" style="color:${color}"></i>
+                <p>${name}</p>
+            </div>
+            `);
+        }
+
+
+
+    });
+}
